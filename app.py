@@ -83,4 +83,4 @@ def callback():
 
 if __name__ == '__main__':
     print('\n### Starting Flask server... ###')
-    app.run(port=4200, debug=False, host='0.0.0.0')
+    app.run(port=5000, debug=False, host='0.0.0.0')

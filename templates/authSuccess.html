@@ -11,15 +11,41 @@
     }
     table {
         width: 100%;
+        max-width: 100%;
         border-collapse: collapse;
+        table-layout: auto;
     }
     th, td {
-        text-align: left;
         padding: 8px;
         border-bottom: 1px solid #ddd;
+        word-wrap: break-word;
     }
     th {
         background-color: #f2f2f2;
+    }
+    th:first-child, td:first-child {
+        width: 1%;
+        white-space: nowrap;
+    }
+    .copy-button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: black;
+        font-size: 16px;
+    }
+    .shutdown-button {
+        display: block;
+        width: 15%; /* Reduced width by 25% */
+        height: 50px;
+        margin: 20px auto;
+        background-color: #A9A9A9; /* Corporate Gray */
+        color: black; /* Black text */
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
     }
 </style>
 </head>
@@ -29,34 +55,43 @@
 
 <table>
   <tr>
-    <th>Field</th>
-    <th>Value</th>
-  </tr>
-  <tr>
     <td>AccessToken</td>
-    <td>{{accessToken}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('accessToken')">📋</button><span id="accessToken">{{accessToken}}</span></td>
   </tr>
   <tr>
     <td>RefreshToken</td>
-    <td>{{refreshToken}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('refreshToken')">📋</button><span id="refreshToken">{{refreshToken}}</span></td>
   </tr>
   <tr>
     <td>Validity</td>
-    <td>{{validity}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('validity')">📋</button><span id="validity">{{validity}}</span></td>
   </tr>
   <tr>
     <td>TokenId</td>
-    <td>{{tokenId}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('tokenId')">📋</button><span id="tokenId">{{tokenId}}</span></td>
   </tr>
   <tr>
     <td>State</td>
-    <td>{{state}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('state')">📋</button><span id="state">{{state}}</span></td>
   </tr>
   <tr>
     <td>TokenType</td>
-    <td>{{tokenType}}</td>
+    <td><button class="copy-button" onclick="copyToClipboard('tokenType')">📋</button><span id="tokenType">{{tokenType}}</span></td>
   </tr>
 </table>
+
+<button class="shutdown-button" onclick="window.location.href='/shutdown'">Shutdown Flask Server</button>
+
+<script>
+function copyToClipboard(elementId) {
+  var text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+}
+</script>
 
 </body>
 </html>

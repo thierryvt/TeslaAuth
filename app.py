@@ -79,7 +79,14 @@ def callback():
     req.raise_for_status()
     app.logger.warning('Access token for Fleet API requests: %s' % req.json()['access_token'])
 
-    return req.json()
+    json = req.json()
+    return render_template('authSuccess.html', accessToken=json['access_token'], refreshToken=json['refresh_token'],
+                           validity=json['expires_in'], tokenId=json['id_token'], state=json['state'], tokenType=json['token_type'])
+
+@app.route('/shutdown')
+def shutdown():
+    """Shutdown Flask server so the HTTP proxy can start"""
+    os._exit(0)
 
 if __name__ == '__main__':
     print('\n### Starting Flask server... ###')

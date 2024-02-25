@@ -32,7 +32,7 @@ def auth():
         'Content-Type': 'application/json'
     }
     payload = '{"domain": "%s"}' % DOMAIN
-    req = requests.post('https://fleet-api.prd.eu.vn.cloud.tesla.com/api/1/partner_accounts', headers=headers,
+    req = requests.post(f'{AUDIENCE}/api/1/partner_accounts', headers=headers,
                         data=payload)
     print(req.text)
     req.raise_for_status()

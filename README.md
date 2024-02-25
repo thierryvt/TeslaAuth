@@ -18,7 +18,7 @@ This means, in short:
 ## installing
 
 - download or clone this repo
-- create .env file in root of project folder for client_id, client_secret, domain, audience, and port
+- create .env file in root of project folder for client_id, client_secret, domain, audience, and port (check api documentation for correct audience URL)
 - run `docker-compose up -d` to start container
 
 ## Usage

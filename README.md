@@ -5,7 +5,8 @@ Simple web-app to handle the new Tesla Fleet API OAuth flow
 
 ## pre-requisites
 
-an environment with docker, docker-compose, and python installed.
+- an environment with docker, docker-compose, and python installed.
+- You have your own web-domain.
 
 You have gone through the necessary steps to set up your app, see https://github.com/teslamotors/vehicle-command for more details.
 This means, in short:

@@ -10,7 +10,7 @@ CLIENT_ID = os.environ['CLIENT_ID']
 CLIENT_SECRET = os.environ['CLIENT_SECRET']
 DOMAIN = os.environ['DOMAIN']
 AUDIENCE = os.environ['AUDIENCE']
-SCOPES = 'openid offline_access vehicle_device_data vehicle_cmds vehicle_charging_cmds'
+SCOPES = 'openid offline_access vehicle_device_data vehicle_cmds vehicle_charging_cmds vehicle_location'
 
 def auth():
     print('\n### Generate Partner Authentication Token ###')

@@ -19,7 +19,7 @@ def auth():
         'grant_type': 'client_credentials',
         'client_id': CLIENT_ID,
         'client_secret': CLIENT_SECRET,
-        'scope': 'openid vehicle_device_data vehicle_cmds vehicle_charging_cmds',
+        'scope': 'openid vehicle_device_data vehicle_cmds vehicle_charging_cmds vehicle_location',
         'audience': AUDIENCE
     }
     req = requests.post('https://auth.tesla.com/oauth2/v3/token', headers=headers, data=payload)
